@@ -8,6 +8,12 @@ import java.util.Optional;
 
 public class JpaBookRepository implements BookRepository {
 
+    private final EntityManager em;
+
+    public JpaBookRepository(EntityManager em) {
+        this.em = em;
+    }
+
     @Override
     public Book save(Book book) {
         return null;

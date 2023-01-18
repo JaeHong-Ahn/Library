@@ -22,7 +22,7 @@ public class BookService {
         return book.getId();
     }
 
-    public List<Book> findMembers(){
+    public List<Book> findBooks(){
         return bookRepository.findAll();
     }
 

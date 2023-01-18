@@ -37,7 +37,7 @@ public class BookController {
 
     @GetMapping("/books")
     public String list(Model model){
-        List<Book> books = bookService.findMembers();
+        List<Book> books = bookService.findBooks();
         model.addAttribute("books", books);
         return "books/bookList";
     }
