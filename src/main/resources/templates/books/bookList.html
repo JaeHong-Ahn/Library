@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="UTF-8">
 <body>
 <div class="container">
   <div>
@@ -11,10 +11,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr th:each="member : ${members}">
-        <td th:text="${member.title}"></td>
-        <td th:text="${member.writer}"></td>
-        <td th:text="${member.year}"></td>
+      <tr th:each="book : ${books}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.writer}"></td>
+        <td th:text="${book.year}"></td>
       </tr>
       </tbody>
     </table>
