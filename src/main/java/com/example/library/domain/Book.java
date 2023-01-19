@@ -11,8 +11,8 @@ public class Book {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-//    private String writer;
-//    private String year;
+    private String writer;
+    private String year;
 
     public Long getId() {
         return id;
@@ -30,4 +30,19 @@ public class Book {
         this.title = title;
     }
 
+    public String getWriter() {
+        return writer;
+    }
+
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
 }

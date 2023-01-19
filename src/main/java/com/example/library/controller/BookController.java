@@ -29,6 +29,8 @@ public class BookController {
     public String create(BookForm form){
         Book book = new Book();
         book.setTitle(form.getTitle());
+        book.setWriter(form.getWriter());
+        book.setYear(form.getYear());
 
         bookService.join(book);
 
