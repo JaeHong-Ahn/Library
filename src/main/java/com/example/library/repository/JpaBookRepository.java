@@ -16,21 +16,27 @@ public class JpaBookRepository implements BookRepository {
 
     @Override
     public Book save(Book book) {
-        return null;
+        em.persist(book);
+        return book;
     }
 
     @Override
     public Optional<Book> findById(Long id) {
-        return Optional.empty();
+        Book book = em.find(Book.class, id);
+        return Optional.ofNullable(book);
     }
 
     @Override
     public Optional<Book> findByTitle(String title) {
-        return Optional.empty();
+        List<Book> result = em.createQuery("select b from Book b where b.title = :title", Book.class)
+                .setParameter("title", title)
+                .getResultList();
+        return result.stream().findAny();
     }
 
     @Override
     public List<Book> findAll() {
-        return null;
+        return em.createQuery("select b from Book b", Book.class)
+                .getResultList();
     }
 }
