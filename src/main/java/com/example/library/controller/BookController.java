@@ -5,10 +5,13 @@ import com.example.library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class BookController {
@@ -43,4 +46,18 @@ public class BookController {
         model.addAttribute("books", books);
         return "books/bookList";
     }
+
+    @GetMapping("/books/search")
+    public String book(Model model, String title){
+        List<Book> books = bookService.findTitle(title);
+        model.addAttribute("books", books);
+        return "books/searchContent";
+    }
+
+//    @DeleteMapping("/delete/{title}")
+//    public String delete(@PathVariable Book book, @PathVariable String title){
+//        if(book.getTitle().equals(title)){
+//
+//        }
+//    }
 }

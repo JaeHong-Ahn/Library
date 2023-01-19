@@ -4,6 +4,7 @@ import com.example.library.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 @Configuration
 public class SpringConfig {
@@ -19,4 +20,10 @@ public class SpringConfig {
     public BookService service() {
         return new BookService(bookRepository);
     }
+
+
+//    @Bean
+//    public HiddenHttpMethodFilter hiddenHttpMethodFilter(){
+//        return new HiddenHttpMethodFilter();
+//    }
 }
