@@ -54,10 +54,17 @@ public class BookController {
         return "books/searchContent";
     }
 
-//    @DeleteMapping("/delete/{title}")
-//    public String delete(@PathVariable Book book, @PathVariable String title){
-//        if(book.getTitle().equals(title)){
-//
-//        }
-//    }
+    @GetMapping("/books/delete")
+    public String deleteBook(){
+        System.out.println("BookController GetMapping deleteBook 호출");
+        return "books/deleteContent";
+    }
+
+    @PostMapping("/books/delete")
+    public String delete(Model model, String title){
+        System.out.println("BookController DeleteMapping delete 호출");
+        List<Book> books = bookService.deleteByTitle(title);
+        //따로 deleteByTitle 메서드를 만들어야할듯.
+        return "redirect:/";
+    }
 }

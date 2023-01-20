@@ -38,4 +38,12 @@ public class JpaBookRepository implements BookRepository {
         return em.createQuery("select b from Book b", Book.class)
                 .getResultList();
     }
+
+    @Override
+    public List<Book> deleteByTitle(String title) {
+        System.out.println("deleteByTitle 호출 JpaBookRepository");
+        return em.createQuery("delete from Book b where b.title = :title", Book.class)
+                .setParameter("title", title)
+                .getResultList();
+    }
 }

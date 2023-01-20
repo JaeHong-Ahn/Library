@@ -34,4 +34,9 @@ public class BookService {
         return bookRepository.findByTitle(title);
     }
 
+    public List<Book> deleteByTitle(String title){
+        System.out.println("BookService deleteByTitle 호출");
+        return bookRepository.deleteByTitle(title);
+    }
+
 }
