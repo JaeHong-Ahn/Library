@@ -13,5 +13,5 @@ public interface BookRepository {
     List<Book> findAll();
     List<Book> getFixByTitle(Book book);
 
-    List<Book> deleteById(Long id);
+    List<Book> deleteBookById(Long id);
 }

@@ -35,7 +35,7 @@ public class BookService {
     }
 
     public List<Book> deleteById(Long id){
-        return bookRepository.deleteById(id);
+        return bookRepository.deleteBookById(id);
     }
 
     public List<Book> getFixByTitle(Book book){

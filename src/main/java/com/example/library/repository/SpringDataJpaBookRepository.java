@@ -9,5 +9,5 @@ public interface SpringDataJpaBookRepository extends JpaRepository<Book, Long>, 
 
     @Override
     List<Book> findByTitle(String title);
-
+    
 }

@@ -40,7 +40,7 @@ public class JpaBookRepository implements BookRepository {
     }
 
     @Override
-    public List<Book> deleteById(Long id) {
+    public List<Book> deleteBookById(Long id) {
         return em.createQuery("delete from Book b where b.id = :id", Book.class)
                 .setParameter("id", id)
                 .getResultList();
@@ -52,4 +52,5 @@ public class JpaBookRepository implements BookRepository {
         return em.createQuery("select b from Book b", Book.class)
                 .getResultList();
     }
+
 }
