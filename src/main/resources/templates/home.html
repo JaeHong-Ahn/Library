@@ -4,14 +4,40 @@
 <div class="container">
     <div>
         <h1>도서 관리 프로그램</h1>
-        <p>회원 기능</p>
-        <p>
-            <a href="/books/new">도서 추가<br></a>
-            <a href="/books/search">도서 검색<br></a>
-            <a href="/books">도서 목록<br></a>
-            <a href="/books/delete">도서 삭제</a>
-        </p>
-    </div>
-</div> <!-- /container -->
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>제목</th>
+                    <th>저자</th>
+                    <th>출판연도</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.id}"></td>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.writer}"></td>
+                    <td th:text="${book.year}"></td>
+                    <td>
+                        <form action="/books/fix" method="post">
+                            <button type="submit">수정</button>
+                        </form>
+                    <td>
+                        <form action="/books/delete" method="post">
+                            <button type="submit">삭제</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <form action="/books/new">
+                <button type="submit">도서 추가하기</button>
+            </form>
+        </div>
+    </div> <!-- /container -->
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <form action="/books/fixing" method="post">
+        <div class="form-group">
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" placeholder="책 제목을 입력해주세요.">
+        </div>
+        <div class="form-group">
+            <label for="writer">저자</label>
+            <input type="text" id="writer" name="writer" placeholder="저자명을 입력해주세요.">
+        </div>
+        <div class="form-group">
+            <label for="year">출판연도</label>
+            <input type="text" id="year" name="year" placeholder="출판연도를 입력해주세요.">
+        </div>
+        <button type="submit">수정</button>
+    </form>
+</div> <!-- /container -->
+</body>
+</html>

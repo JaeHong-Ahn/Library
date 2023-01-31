@@ -34,9 +34,12 @@ public class BookService {
         return bookRepository.findByTitle(title);
     }
 
-    public List<Book> deleteByTitle(String title){
-        System.out.println("BookService deleteByTitle 호출");
-        return bookRepository.deleteByTitle(title);
+    public List<Book> deleteById(Long id){
+        return bookRepository.deleteById(id);
+    }
+
+    public List<Book> getFixByTitle(Book book){
+        return bookRepository.getFixByTitle(book);
     }
 
 }
