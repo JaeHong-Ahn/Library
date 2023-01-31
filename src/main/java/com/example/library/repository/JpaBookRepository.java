@@ -27,10 +27,10 @@ public class JpaBookRepository implements BookRepository {
     }
 
     @Override
-    public List<Book> findByTitle(String title) {
+    public Book findByTitle(String title) {
         return em.createQuery("select b from Book b where b.title = :title", Book.class)
                 .setParameter("title", title)
-                .getResultList();
+                .getSingleResult();
     }
 
     @Override
@@ -49,7 +49,7 @@ public class JpaBookRepository implements BookRepository {
 
     @Override
     public List<Book> getFixByTitle(Book book) {
-        return em.createQuery("select b from Book b", Book.class)
+        return em.createQuery("select b from Book b where b.title = :title", Book.class)
                 .getResultList();
     }
 

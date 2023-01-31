@@ -8,6 +8,6 @@ import java.util.List;
 public interface SpringDataJpaBookRepository extends JpaRepository<Book, Long>, BookRepository {
 
     @Override
-    List<Book> findByTitle(String title);
-    
+    Book findByTitle(String title);
+
 }

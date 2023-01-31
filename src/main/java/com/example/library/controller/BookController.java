@@ -22,12 +22,12 @@ public class BookController {
     }
 
     @GetMapping("/books/new")
-    public String createForm(){
+    public String createForm() {
         return "books/addContent";
     }
 
     @PostMapping("/books/new")
-    public String create(BookForm form){
+    public String create(BookForm form) {
         Book book = new Book();
         book.setTitle(form.getTitle());
         book.setWriter(form.getWriter());
@@ -38,68 +38,34 @@ public class BookController {
         return "redirect:/";
     }
 
-//    @GetMapping("/books")
-//    public String list(Model model){
-//        List<Book> books = bookService.findBooks();
-//        model.addAttribute("books", books);
-//        return "home";
-//    }
-
-//    @GetMapping("/books/search")
-//    public String book(Model model, String title){
-//        List<Book> books = bookService.findTitle(title);
-//        model.addAttribute("books", books);
-//        return "books/searchContent";
-//    }
-
-//    @GetMapping("/books/delete")
-//    public String deleteBook(){
-//        return "books/deleteContent";
-//    }
-
     @PostMapping("/books/delete")
-    public String delete(@Param("id") Long id){
+    public String delete(@Param("id") Long id) {
         List<Book> books = bookService.deleteById(id);
         return "redirect:/";
     }
 
 
-    @GetMapping("/books/fix")
-    public String fixBook1(Model model, @Param("title") Optional<String> title){
-        if(title.isPresent()){ // title이 null값이 아니면
-            List<Book> books = bookService.findTitle(String.valueOf(title));
-            model.addAttribute("books", books);
-        } else {
-            List<Book> books = bookService.findBooks();
-            model.addAttribute("books", books);
-        }
-        return "books/fixList";
-    }
 
-    @PostMapping("/books/fix")
-    public String fixBook2(String title, Model model){
-        List<Book> books = bookService.findTitle(title);
-        model.addAttribute("books", books);
+    @GetMapping("/books/fix")
+    public String fixBook2(@Param("id") Long id, Model model) {
+        Book book = bookService.findOne(id).get();
+        model.addAttribute("book", book);
+
         return "books/fixContent";
     }
 
-    @PostMapping("/books/fixing")
-    public String modify(Model model, String title){
+    @PostMapping("/books/fix")
+    public String fixBook3(BookForm form, @RequestParam("id") Long id) {
 
+        Book book = bookService.findOne(id).get();
 
+        book.setTitle(form.getTitle());
+        book.setWriter(form.getWriter());
+        book.setYear(form.getYear());
 
-//        return "redirect:/books/fixList";
+        bookService.join(book);
+
         return "redirect:/";
     }
 
-//    @PostMapping("/books/fixing")
-//    public String fixBooks2(BookForm form, Book book){
-//        System.out.println("fixBooks2 PostMapping 호출");
-//
-//        book.setTitle(form.getTitle());
-//        book.setWriter(form.getWriter());
-//        book.setYear(form.getYear());
-//
-//        return "redirect:/";
-//    }
 }

@@ -30,7 +30,7 @@ public class BookService {
         return bookRepository.findById(bookId);
     }
 
-    public List<Book> findTitle(String title){
+    public Book findTitle(String title){
         return bookRepository.findByTitle(title);
     }
 

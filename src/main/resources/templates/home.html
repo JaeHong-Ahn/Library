@@ -21,7 +21,8 @@
                     <td th:text="${book.writer}"></td>
                     <td th:text="${book.year}"></td>
                     <td>
-                        <form action="/books/fix" method="post">
+                        <form action="/books/fix" method="get">
+                            <input type="hidden" th:name="id" th:value="${book.id}">
                             <button type="submit">수정</button>
                         </form>
                     <td>

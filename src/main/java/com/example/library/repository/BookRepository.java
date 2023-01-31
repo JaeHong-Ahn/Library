@@ -9,7 +9,7 @@ public interface BookRepository {
 
     Book save(Book book);
     Optional<Book> findById(Long id);
-    List<Book> findByTitle(String title);
+    Book findByTitle(String title);
     List<Book> findAll();
     List<Book> getFixByTitle(Book book);
 
