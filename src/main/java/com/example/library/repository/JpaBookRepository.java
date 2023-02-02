@@ -45,12 +45,4 @@ public class JpaBookRepository implements BookRepository {
                 .setParameter("id", id)
                 .getResultList();
     }
-
-
-    @Override
-    public List<Book> getFixByTitle(Book book) {
-        return em.createQuery("select b from Book b where b.title = :title", Book.class)
-                .getResultList();
-    }
-
 }

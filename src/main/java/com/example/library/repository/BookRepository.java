@@ -11,7 +11,5 @@ public interface BookRepository {
     Optional<Book> findById(Long id);
     Book findByTitle(String title);
     List<Book> findAll();
-    List<Book> getFixByTitle(Book book);
-
     List<Book> deleteBookById(Long id);
 }

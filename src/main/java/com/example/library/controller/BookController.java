@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class BookController {
@@ -29,6 +28,7 @@ public class BookController {
     @PostMapping("/books/new")
     public String create(BookForm form) {
         Book book = new Book();
+
         book.setTitle(form.getTitle());
         book.setWriter(form.getWriter());
         book.setYear(form.getYear());
@@ -67,5 +67,4 @@ public class BookController {
 
         return "redirect:/";
     }
-
 }
